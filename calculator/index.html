@@ -3,41 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator</title>
+  <title>Tetris</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="calculator">
-    <div class="display">
-      <div class="expression" id="expression"></div>
-      <div class="result" id="result">0</div>
+  <div class="wrapper">
+    <div class="sidebar left">
+      <div class="panel">
+        <div class="label">SCORE</div>
+        <div class="value" id="score">0</div>
+      </div>
+      <div class="panel">
+        <div class="label">LEVEL</div>
+        <div class="value" id="level">1</div>
+      </div>
+      <div class="panel">
+        <div class="label">LINES</div>
+        <div class="value" id="lines">0</div>
+      </div>
     </div>
-    <div class="buttons">
-      <button class="btn span-two" data-action="clear">AC</button>
-      <button class="btn" data-action="sign">+/-</button>
-      <button class="btn operator" data-action="operator" data-value="%">%</button>
-      <button class="btn operator" data-action="operator" data-value="÷">÷</button>
 
-      <button class="btn" data-action="number" data-value="7">7</button>
-      <button class="btn" data-action="number" data-value="8">8</button>
-      <button class="btn" data-action="number" data-value="9">9</button>
-      <button class="btn operator" data-action="operator" data-value="×">×</button>
+    <div class="game-area">
+      <canvas id="board" width="300" height="600"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="overlay-box">
+          <div class="overlay-title" id="overlay-title">TETRIS</div>
+          <div class="overlay-sub" id="overlay-sub">Press Space or tap to start</div>
+          <button class="start-btn" id="start-btn">START</button>
+        </div>
+      </div>
+    </div>
 
-      <button class="btn" data-action="number" data-value="4">4</button>
-      <button class="btn" data-action="number" data-value="5">5</button>
-      <button class="btn" data-action="number" data-value="6">6</button>
-      <button class="btn operator" data-action="operator" data-value="−">−</button>
-
-      <button class="btn" data-action="number" data-value="1">1</button>
-      <button class="btn" data-action="number" data-value="2">2</button>
-      <button class="btn" data-action="number" data-value="3">3</button>
-      <button class="btn operator" data-action="operator" data-value="+">+</button>
-
-      <button class="btn span-two" data-action="number" data-value="0">0</button>
-      <button class="btn" data-action="decimal">.</button>
-      <button class="btn equals" data-action="equals">=</button>
+    <div class="sidebar right">
+      <div class="panel">
+        <div class="label">NEXT</div>
+        <canvas id="next" width="120" height="120"></canvas>
+      </div>
+      <div class="panel controls-panel">
+        <div class="label">CONTROLS</div>
+        <div class="controls">
+          <div>← → Move</div>
+          <div>↑ Rotate</div>
+          <div>↓ Soft drop</div>
+          <div>Space Hard drop</div>
+          <div>P Pause</div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Mobile controls -->
+  <div class="mobile-controls">
+    <div class="mobile-row">
+      <button class="mob-btn" id="btn-rotate">↑</button>
+    </div>
+    <div class="mobile-row">
+      <button class="mob-btn" id="btn-left">←</button>
+      <button class="mob-btn" id="btn-down">↓</button>
+      <button class="mob-btn" id="btn-right">→</button>
+    </div>
+    <div class="mobile-row">
+      <button class="mob-btn wide" id="btn-drop">DROP</button>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
